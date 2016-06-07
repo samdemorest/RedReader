@@ -961,7 +961,10 @@ public final class RedditPreparedPost {
 		iconsDark.put(Action.DOWNVOTE, R.drawable.action_downvote_dark);
 		iconsDark.put(Action.SAVE, R.drawable.ic_action_star_filled_dark);
 		iconsDark.put(Action.HIDE, R.drawable.ic_action_cross_dark);
-		iconsDark.put(Action.REPLY, R.drawable.ic_action_reply_dark);
+		if(!src.isLocked()) {
+			Log.e("STATE", "Post is locked");
+			iconsDark.put(Action.REPLY, R.drawable.ic_action_reply_dark);
+		}
 		iconsDark.put(Action.EXTERNAL, R.drawable.ic_action_external_dark);
 		iconsDark.put(Action.SAVE_IMAGE, R.drawable.ic_action_save_dark);
 		iconsDark.put(Action.SHARE, R.drawable.ic_action_share_dark);
@@ -977,7 +980,10 @@ public final class RedditPreparedPost {
 		iconsLight.put(Action.DOWNVOTE, R.drawable.action_downvote_light);
 		iconsLight.put(Action.SAVE, R.drawable.ic_action_star_filled_light);
 		iconsLight.put(Action.HIDE, R.drawable.ic_action_cross_light);
-		iconsLight.put(Action.REPLY, R.drawable.ic_action_reply_light);
+		if(!src.isLocked()) {
+			Log.e("STATE","Post is locked");
+			iconsLight.put(Action.REPLY, R.drawable.ic_action_reply_light);
+		}
 		iconsLight.put(Action.EXTERNAL, R.drawable.ic_action_external_light);
 		iconsLight.put(Action.SAVE_IMAGE, R.drawable.ic_action_save_light);
 		iconsLight.put(Action.SHARE, R.drawable.ic_action_share_light);

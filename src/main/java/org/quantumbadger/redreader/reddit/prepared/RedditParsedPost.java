@@ -14,6 +14,7 @@ public class RedditParsedPost implements RedditThingWithIdAndType {
 	private final String mUrl;
 	private final MarkdownParagraphGroup mSelfText;
 	private final String mFlairText;
+	private final String mLockedText;
 
 	public RedditParsedPost(
 			final RedditPost src,
@@ -39,6 +40,12 @@ public class RedditParsedPost implements RedditThingWithIdAndType {
 			mFlairText = StringEscapeUtils.unescapeHtml4(src.link_flair_text);
 		} else {
 			mFlairText = null;
+		}
+
+		if(src.locked){
+			mLockedText = "Locked";
+		} else {
+			mLockedText = null;
 		}
 	}
 
@@ -121,4 +128,6 @@ public class RedditParsedPost implements RedditThingWithIdAndType {
 	public MarkdownParagraphGroup getSelfText() {
 		return mSelfText;
 	}
+
+	public boolean isLocked() { return mSrc.locked; }
 }
